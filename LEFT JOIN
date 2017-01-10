@@ -1,0 +1,7 @@
+List farmer names who do not have fields
+
+SELECT Farmer.faname
+From farmer
+Left join owner
+on farmer.fano =owner.fano 
+WHERE owner.fano is null;
