@@ -5,3 +5,15 @@ From farmer
 Left join owner
 on farmer.fano =owner.fano 
 WHERE owner.fano is null;
+
+
+
+多表联合查询
+SELECT farmer.faname, crop.crop,owner.pdate,field.area*owner.share as Ownarea
+FROM ((owner
+left join field on owner.fino=field.fino)
+left join farmer on owner.fano=farmer.fano)
+left join crop on field.cropno=crop.cropno
+order BY farmer.faname,crop.crop;
+
+
